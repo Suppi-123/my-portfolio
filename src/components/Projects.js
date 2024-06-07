@@ -59,8 +59,9 @@ const projectDetails = [
       "View Location: This use case denotes a set of actions required by the Guardian or Doctor to locate the subject on the map after receiving his location details.",
       "Messaging Service: This use case denotes a set of actions required by the doctor to send a message to the subject’s guardian in case of emergencies."
     ],
-    conclusion: "This system will provide constant health monitoring facilities for the patients who are in the ICU or bedridden at home remotely from any place. ECG sensor and digital thermometer are the two sensors that have been used to allow real-time monitoring of ECG signal and temperature of the patient. Moreover, the data is continuously updated to the cloud at regular time intervals. This helps the doctors, nurses, or the relatives of the patient to monitor the health condition of the patient and also helps to take any action at the appropriate time. The system also sends an automated notification via text to the doctors or the relatives if the ECG signals and the temperature reading go above or below the threshold value. It will help doctors in many ways and will enhance the efficiency of monitoring and treatment for patients."
-  }
+    conclusion: "This system will provide constant health monitoring facilities for the patients who are in the ICU or bedridden at home remotely from any place. ECG sensor and digital thermometer are the two sensors that have been used to allow real-time monitoring of ECG signal and temperature of the patient. Moreover, the data is continuously updated to the cloud at regular time intervals. This helps the doctors, nurses, or the relatives of the patient to monitor the health condition of the patient and also helps to take any action at the appropriate time. The system also sends an automated notification via text to the doctors or the relatives if the ECG signals and the temperature reading go above or below the threshold value. It will help doctors in many ways and will enhance the efficiency of monitoring and treatment for patients.",
+    image: mpImage // Use the imported image
+  },
 ];
 
 const Projects = () => {

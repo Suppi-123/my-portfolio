@@ -12,7 +12,7 @@ const Skills = () => {
               Here you can see my skills, one of the fascinations of the computer world is the momentary changes of technologies, but I try to update my knowledge every day and experience new technologies.
             </p>
             <div className="flex flex-wrap space-x-2 space-y-2">
-              {['HTML', 'CSS', 'Javascript', 'React', 'Apache Kafka', 'Apache NiFi', 'SQL'].map(skill => (
+              {['HTML', 'CSS', 'Javascript', 'React', 'Apache Kafka', 'Apache NiFi', 'SQL', 'FastAPI', 'Python'].map(skill => (
                 <span key={skill} className="bg-yellow-500 text-white px-3 py-1 rounded-full">
                   {skill}
                 </span>

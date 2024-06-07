@@ -12,24 +12,26 @@ const App = () => {
   return (
     <div>
       <Header />
-      <section id="home">
-        <MainSection />
-      </section>
-      <section id="about">
-        <AboutMe />
-      </section>
-      <section id="skills">
-        <Skills />
-      </section>
-      <section id="experiences">
-        <Experiences />
-      </section>
-      <section id="projects">
-        <Projects />
-      </section>
-      <section id="contact">
-        <Contact />
-      </section>
+      <div className="pt-16">
+        <section id="home">
+          <MainSection />
+        </section>
+        <section id="about">
+          <AboutMe />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="experiences">
+          <Experiences />
+        </section>
+        <section id="projects">
+          <Projects />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+      </div>
     </div>
   );
 };
