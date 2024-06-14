@@ -8,7 +8,7 @@ const MainSection = () => {
       <div className="container mx-auto p-4">
         <div className="text-xl md:text-2xl lg:text-3xl font-semibold text-yellow-600">Hi There, I'm</div>
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800">Supriya K</h1>
-        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-2">SD</p>
+        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 mt-2">Frontend Developer</p>
         <div className="flex justify-center space-x-4 mt-4">
           <a href="https://twitter.com/Supriya_keshav" className="text-yellow-600 hover:text-gray-800" target="_blank" rel="noopener noreferrer">
             <FaTwitter size={30} />

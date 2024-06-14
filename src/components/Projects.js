@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
 
-import projectImage from '../assets/Spike-image.png'; // Import the image
+import P1Image from '../assets/P1.png';
+import P2Image from '../assets/P2.png';
+import P3Image from '../assets/P3.png';
 import mpImage from '../assets/mp.png';
 import mp2Image from '../assets/mp2.png';
 import mp3Image from '../assets/mp3.png';
@@ -40,7 +42,7 @@ const projectDetails = [
       "Integration with spike®_app for remote alerts.",
       "Device configuration and management."
     ],
-    image: projectImage // Use the imported image
+    images: [P1Image, P2Image, P3Image] // Use the imported images
   },
   {
     id: 2,
@@ -60,24 +62,24 @@ const projectDetails = [
       "Messaging Service: This use case denotes a set of actions required by the doctor to send a message to the subject’s guardian in case of emergencies."
     ],
     conclusion: "This system will provide constant health monitoring facilities for the patients who are in the ICU or bedridden at home remotely from any place. ECG sensor and digital thermometer are the two sensors that have been used to allow real-time monitoring of ECG signal and temperature of the patient. Moreover, the data is continuously updated to the cloud at regular time intervals. This helps the doctors, nurses, or the relatives of the patient to monitor the health condition of the patient and also helps to take any action at the appropriate time. The system also sends an automated notification via text to the doctors or the relatives if the ECG signals and the temperature reading go above or below the threshold value. It will help doctors in many ways and will enhance the efficiency of monitoring and treatment for patients.",
-    image: mpImage // Use the imported image
+    images: [mpImage, mp2Image, mp3Image, mp4Image] // Use the imported images
   },
 ];
 
 const Projects = () => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
-  const [selectedImage, setSelectedImage] = useState(mpImage); // Default image
+  const [selectedImage, setSelectedImage] = useState(null); // Default image
 
   const openModal = (project) => {
     setSelectedProject(project);
-    setSelectedImage(mpImage); // Default to the first image
+    setSelectedImage(project.images ? project.images[0] : null); // Default to the first image if available
     setModalIsOpen(true);
   };
 
   const closeModal = () => {
     setSelectedProject(null);
-    setSelectedImage(mpImage); // Reset to default image when closing modal
+    setSelectedImage(null); // Reset to null image when closing modal
     setModalIsOpen(false);
   };
 
@@ -96,7 +98,11 @@ const Projects = () => {
           {projectDetails.map((project) => (
             <div key={project.id} className="bg-gray-100 p-6 rounded-lg shadow-lg">
               <div className="flex items-center mb-4">
-                <img src={project.image} alt={project.title} className="w-12 h-12 mr-4" /> {/* Use the imported image for the logo */}
+                {project.images ? (
+                  <img src={project.images[0]} alt={project.title} className="w-12 h-12 mr-4" />
+                ) : (
+                  <img src={project.image} alt={project.title} className="w-12 h-12 mr-4" />
+                )}
                 <div>
                   <h3 className="text-xl font-bold">{project.title}</h3>
                 </div>
@@ -120,13 +126,14 @@ const Projects = () => {
         {selectedProject && (
           <>
             <h2 className="text-3xl font-bold mb-4 text-center">{selectedProject.title}</h2>
-            <img src={selectedImage} alt={selectedProject.title} className="w-full mb-4" />
-            <div className="flex justify-center mb-4">
-              <img src={mpImage} alt="MP" className="w-16 h-16 cursor-pointer mx-1" onClick={() => handleImageChange(mpImage)} />
-              <img src={mp2Image} alt="MP2" className="w-16 h-16 cursor-pointer mx-1" onClick={() => handleImageChange(mp2Image)} />
-              <img src={mp3Image} alt="MP3" className="w-16 h-16 cursor-pointer mx-1" onClick={() => handleImageChange(mp3Image)} />
-              <img src={mp4Image} alt="MP4" className="w-16 h-16 cursor-pointer mx-1" onClick={() => handleImageChange(mp4Image)} />
-            </div>
+            {selectedImage && <img src={selectedImage} alt={selectedProject.title} className="w-full mb-4" />}
+            {selectedProject.images && (
+              <div className="flex justify-center mb-4">
+                {selectedProject.images.map((image, index) => (
+                  <img key={index} src={image} alt={`P${index + 1}`} className="w-16 h-16 cursor-pointer mx-1" onClick={() => handleImageChange(image)} />
+                ))}
+              </div>
+            )}
             <p className="text-lg mb-4">{selectedProject.description}</p>
             <ul className="list-disc pl-5 mb-4">
               {selectedProject.info.map((item, index) => (

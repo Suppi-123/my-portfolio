@@ -1,5 +1,8 @@
-// src/components/Experiences.js
 import React from 'react';
+
+import cmti from '../assets/cmti.png';
+import zephyr from '../assets/zephyr.jpg';
+import accenture from '../assets/accenture.jpg';
 
 const Experiences = () => {
   return (
@@ -12,7 +15,7 @@ const Experiences = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
             <div className="flex items-center mb-4">
-              <img src="/path-to-cmti-logo.png" alt="CMTI" className="w-16 h-16 mr-4" />
+              <img src={cmti} alt="CMTI" className="w-16 h-16 mr-4" />
               <div>
                 <h3 className="text-2xl font-bold">Project Fellow-1 - CMTI</h3>
                 <span className="text-yellow-500">Jun 2023 - Present</span>
@@ -32,7 +35,7 @@ const Experiences = () => {
           </div>
           <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
             <div className="flex items-center mb-4">
-              <img src="/path-to-accenture-logo.png" alt="Accenture" className="w-16 h-16 mr-4" />
+              <img src={accenture} alt="accenture" className="w-16 h-16 mr-4" />
               <div>
                 <h3 className="text-2xl font-bold">AWS Cloud Practitioner - Accenture</h3>
                 <span className="text-yellow-500">Dec 2022 - Apr 2023</span>
@@ -46,7 +49,7 @@ const Experiences = () => {
           </div>
           <div className="bg-gray-100 p-6 rounded-lg shadow-lg">
             <div className="flex items-center mb-4">
-              <img src="/path-to-zephyr-logo.png" alt="Zephyr Technologies" className="w-16 h-16 mr-4" />
+              <img src={zephyr} alt="Zephyr Technologies" className="w-16 h-16 mr-4" />
               <div>
                 <h3 className="text-2xl font-bold">Artificial Intelligence and Machine Learning - Zephyr Technologies</h3>
                 <span className="text-yellow-500">Jul 2021 - Aug 2021</span>

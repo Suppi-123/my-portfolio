@@ -1,23 +1,24 @@
-import React,{ useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 function Contact() {
   const form = useRef();
+  const [successMessage, setSuccessMessage] = useState('');
 
   const sendEmail = (e) => {
     e.preventDefault();
 
     emailjs
-      .sendForm('service_p6wuz7x', 'template_jb6y8hl', form.current, {
-        publicKey: 'CRZLoe7x-8WsXUkiA',
-      })
+      .sendForm('service_p6wuz7x', 'template_jb6y8hl', form.current, 'CRZLoe7x-8WsXUkiA')
       .then(
         (result) => {
-          console.log('SUCCESS SENT MESSAGE!',result.text);
+          console.log('SUCCESS SENT MESSAGE!', result.text);
+          setSuccessMessage('Your message has been sent successfully!');
+          form.current.reset(); // Clear the form fields
         },
         (error) => {
           console.log('FAILED...', error.text);
-        },
+        }
       );
   };
 
@@ -86,11 +87,13 @@ function Contact() {
               Contact Me
             </button>
           </div>
+          {successMessage && (
+            <p className="text-green-500 text-center mt-4">{successMessage}</p>
+          )}
         </form>
-       
       </div>
     </section>
   );
-};
+}
 
 export default Contact;
